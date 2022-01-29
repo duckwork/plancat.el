@@ -85,14 +85,15 @@
       (with-temp-buffer
         (url-retrieve (format "https://%s/stdin" plancat-host)
                       (lambda (status)
-                        (if-let (err (plist-get status :error))
+                        (if-let ((err (plist-get status :error)))
                             (user-error
                              "Plan.cat submission errored: %S"
                              err)
-                          (message "https://%s/~%s/.plan updated!"
-                                   plancat-host
-                                   plancat-user)
-                          (plancat-cancel))))))))
+                          (progn
+                            (message
+                             "https://%s/~%s/.plan updated!"
+                             plancat-host plancat-user)
+                            (plancat-cancel)))))))))
 
 (defun plancat-cancel ()
   "Cancel updating plan.cat."
