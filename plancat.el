@@ -70,17 +70,29 @@
     (base64-encode-string (concat (or user plancat-user)
                                   ":" pass))))
 
+(defun plancat-generate-header-line (&optional host user)
+  "Generate a header-line for the plan.cat buffer."
+  (substitute-command-keys
+   (format (concat "Editing plan file for %s@%s."
+                   " \\[plancat-send]: Submit changes to %2$s."
+                   " \\[plancat-cancel]: Cancel editing.")
+           (or user plancat-user)
+           (or host plancat-host))))
+
 (defvar plancat-map
     (let ((map (make-sparse-keymap)))
       (define-key map (kbd "C-c C-c") #'plancat-send)
       (define-key map (kbd "C-c C-k") #'plancat-cancel)
       map)
-  "Keymap for `plancat-mode'.")
+    "Keymap for `plancat-mode'.")
 
 (define-minor-mode plancat-mode
   "Update plan.cat."
   :lighter " plan.cat"
-  :keymap plancat-map)
+  :keymap plancat-map
+  (if plancat-mode
+      (setq header-line-format (plancat-generate-header-line))
+    (setq header-line-format nil)))
 
 (defun plan.cat ()
   "Edit your plan at plan.cat."
