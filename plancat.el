@@ -2,7 +2,28 @@
 
 ;;; Commentary:
 
-;; https://plan.cat/
+;; I recently found https://plan.cat/, which is an http-enabled fingerd server
+;; online.  It's pretty neat, and has a pretty simple "API" for updating your
+;; plan:
+
+;; T=`mktemp` && curl -so $T https://plan.cat/~acdw && $EDITOR $T && \
+;; curl -su acdw -F "plan=<$T" https://plan.cat/stdin
+
+;; This package is a port of that "API" to elisp, basically.
+
+;; Configuration:
+
+;; - `plancat-host': the server to interface with.
+;; - `plancat-user': your user name on `plancat-host'.
+;; - `plancat-pass': your password on `plancat-host'.
+;;   `plancat' also supports using `auth-sources', which see.
+
+;; Interface:
+
+;; \\[plan.cat] will fetch your current plan from plan.cat and insert it in a
+;; buffer for you to edit.  Edit to your liking, then call \\[plancat-send] to
+;; post your new plan.  If you decide not to post, call \\[plancat-cancel] to
+;; cancel the change of plans.
 
 ;;; Code:
 
