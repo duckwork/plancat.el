@@ -1,5 +1,13 @@
 ;;; plancat.el --- Plan.cat interface -*- lexical-binding: t; -*-
 
+;; Copyright (C) 2022 Case Duckworth
+
+;; Author: Case Duckworth <acdw@acdw.net>
+;; License: ISC
+;; Package-Version: 0.1
+;; URL: https://github.com/duckwork/plancat.el
+;; Package-Requires: ((emacs "26.1"))
+
 ;;; Commentary:
 
 ;; I recently found https://plan.cat/, which is an http-enabled fingerd server
@@ -75,6 +83,7 @@
   :keymap plancat-map)
 
 (defun plan.cat ()
+  "Edit your plan at plan.cat."
   (interactive)
   (let ((buf (get-buffer-create plancat-buffer))
         (cur (with-current-buffer
