@@ -29,3 +29,9 @@ cancel the change of plans.
 * License
 
 This package is licensed under the terms of the ISC.
+
+* Todo
+
+Right now, =plancat.el= only posts new plans.  It should be fairly trivial to set
+up a plan-browsing or other mode, though honestly those might be better served
+with =eww=.
