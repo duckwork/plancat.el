@@ -27,6 +27,9 @@
 
 ;;; Code:
 
+(require 'url)
+(require 'auth-sources)
+
 (defgroup plancat nil
   "Customization group for updating plan.cat."
   :group 'network
