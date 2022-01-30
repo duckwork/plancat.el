@@ -33,15 +33,18 @@
   :group 'applications)
 
 (defcustom plancat-user nil
-  "Plan.cat username.")
+  "Plan.cat username."
+  :type 'string)
 
 (defcustom plancat-host "plan.cat"
-  "Plan.cat host.")
+  "Plan.cat host."
+  :type 'string)
 
 (defcustom plancat-pass nil
-  "Plan.cat password.")
+  "Plan.cat password."
+  :type 'string)
 
-(defcustom plancat-buffer "*plan.cat*"
+(defvar plancat-buffer "*plan.cat*"
   "The name to give the plan.cat buffer.")
 
 (defun plancat-auth (&optional user)
