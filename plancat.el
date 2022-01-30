@@ -36,7 +36,7 @@
 ;;; Code:
 
 (require 'url)
-(require 'auth-sources)
+(require 'auth-source)
 
 (defgroup plancat nil
   "Customization group for updating plan.cat."
