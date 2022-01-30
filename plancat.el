@@ -59,7 +59,7 @@
     (base64-encode-string (concat (or user plancat-user)
                                   ":" pass))))
 
-(+defvar plancat-map
+(defvar plancat-map
     (let ((map (make-sparse-keymap)))
       (define-key map (kbd "C-c C-c") #'plancat-send)
       (define-key map (kbd "C-c C-k") #'plancat-cancel)
