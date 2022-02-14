@@ -94,6 +94,7 @@
       (setq header-line-format (plancat-generate-header-line))
     (setq header-line-format nil)))
 
+;;;###autoload
 (defun plan.cat ()
   "Edit your plan at plan.cat."
   (interactive)
